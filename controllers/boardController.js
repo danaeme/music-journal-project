@@ -35,4 +35,43 @@ router.get('/:id', async (req, res) => {
   res.render('boardPage', { board });
 });
 
+//edit boards
+router.get('/:id/edit', async (req, res) => {
+  const board = await Board.findById(req.params.id);
+  res.render('editBoard', { board });
+});
+
+router.post('/:id/edit', async (req, res) => {
+  try {
+      const board = await Board.findById(req.params.id);
+      board.board_name = req.body.board_name;
+      board.description = req.body.description;
+      await board.save();
+      res.redirect('/users/profile');
+  } catch (error) {
+      console.error(error);
+      res.redirect(`/boards/${req.params.id}/edit`);
+  }
+});
+
+//delete boards
+router.delete('/:id', async (req, res) => {
+  try {
+    const board = await Board.findById(req.params.id);
+    if (board) {
+      await board.remove();
+
+      const user = await User.findById(req.session.userId);
+      user.boards.pull(board._id);
+      await user.save();
+      //removes board reference from user's boards array 
+  }
+  res.redirect('/users/profile');
+  } catch (error) {
+    console.error(error);
+    res.redirect('/users/profile');
+}
+});
+
+
 module.exports = router;

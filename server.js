@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const morgan = require('morgan');
+const methodOverride = require('method-override');
 const userController = require('./controllers/userController');
 const boardController = require('./controllers/boardController');
 const journalEntryController = require('./controllers/journalEntryController');
@@ -20,6 +21,7 @@ mongoose.connection.on('connected', () => {
 
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
+app.use(methodOverride('_method'));
 app.use(
     session({
       secret: process.env.SESSION_SECRET,
