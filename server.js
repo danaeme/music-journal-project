@@ -4,6 +4,9 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const morgan = require('morgan');
 const userController = require('./controllers/userController');
+const boardController = require('./controllers/boardController');
+const journalEntryController = require('./controllers/journalEntryController');
+
 
 const app = express();
 
@@ -28,7 +31,8 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
 app.use('/users', userController);
-
+app.use('/boards', boardController);
+app.use('/entries', journalEntryController);
  
 app.get('/', (req, res) => {
     res.redirect('/users/profile');

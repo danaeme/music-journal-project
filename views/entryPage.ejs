@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journal Entry</title>
+</head>
+<body>
+    <h1><%= journalEntry.album_title %> by <%= journalEntry.artist %></h1>
+    <img src="<%= journalEntry.album_cover_image %>" alt="Album Cover">
+    <p>Notes: <%= journalEntry.personal_notes %></p>
+    <p>Rating: <%= journalEntry.rating %> stars</p>
+    <a href="/entries/<%= journalEntry._id %>/edit">Edit Entry</a>
+</body>
+</html>
