@@ -3,7 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const morgan = require('morgan');
-
+const userController = require('./controllers/userController');
 
 const app = express();
 
@@ -24,7 +24,10 @@ app.use(
       saveUninitialized: true,
     })
   );
-  app.set('view engine', 'ejs');
+app.use(express.static('public'));
+app.set('view engine', 'ejs');
+
+app.use('/users', userController);
 
  
 app.get('/', (req, res) => {
