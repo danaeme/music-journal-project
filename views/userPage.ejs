@@ -3,15 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>User Page</title>
 </head>
 <body>
     <h1>Welcome, <%= user.username %></h1>
     <div>
-        <h2>Your Notes</h2>
+        <h2>Your Entries</h2>
     </div> 
     <div>
         <h2>Boards</h2>
+        <ul>
+            <% user.boards.forEach(board => { %>
+                <li><a href="/boards/<%= board._id %>"><%= board.board_name %></a></li>
+            <% }) %>
+        </ul>
     </div>
     <div>
         <button onclick="window.location.href='/boards/add'">Add New Board</button>

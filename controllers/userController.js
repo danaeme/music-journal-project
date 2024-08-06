@@ -2,6 +2,8 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const User = require('../models/user');
 const router = express.Router();
+// const Board = require('../models/board');
+
 
 router.get('/register', (req, res) => {
     res.render('register');
@@ -32,9 +34,9 @@ router.post('/login', async (req, res) => {
   if (user && await bcrypt.compare(req.body.password, user.password)) {
     req.session.userId = user._id;
     res.redirect('/users/profile');
-  } else {
+    } else {
     res.redirect('/users/login');
-  }
+    }
   } catch (error) {
     console.log(error);
     res.redirect('/users/login');
@@ -46,7 +48,7 @@ router.get('/profile', async (req, res) => {
     return res.redirect('/users/login');
   }
   
-  const user = await User.findById(req.session.userId);
+  const user = await User.findById(req.session.userId).populate('boards');
   res.render('userPage', { user });
 });
 
