@@ -46,21 +46,32 @@ router.get('/:id', async (req, res) => {
 
 //edit boards
 router.get('/:id/edit', async (req, res) => {
-  const board = await Board.findById(req.params.id);
-  res.render('editBoard', { board });
+  try {
+    const board = await Board.findById(req.params.id);
+    if (!board) {
+        return res.redirect('/users/profile');
+    }
+    res.render('editBoard', { board });
+} catch (error) {
+    console.error(error);
+    res.redirect('/users/profile');
+}
 });
 
 router.post('/:id/edit', async (req, res) => {
   try {
-      const board = await Board.findById(req.params.id);
-      board.board_name = req.body.board_name;
-      board.description = req.body.description;
-      await board.save();
-      res.redirect(`/boards/${req.params.id}`);
-    } catch (error) {
-      console.error(error);
-      res.redirect(`/boards/${req.params.id}/edit`);
-  }
+    const board = await Board.findById(req.params.id);
+    if (!board) {
+        return res.redirect('/users/profile');
+    }
+    board.board_name = req.body.board_name;
+    board.description = req.body.description;
+    await board.save();
+    res.redirect(`/boards/${req.params.id}`);
+} catch (error) {
+    console.error(error);
+    res.redirect(`/boards/${req.params.id}/edit`);
+}
 });
 
 //delete boards

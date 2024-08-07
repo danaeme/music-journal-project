@@ -13,7 +13,7 @@
         <ul>
             <% board.entries.forEach(entry => { %>
                 <li>
-                    <a href="/records/<%= entry._id %>"><%= entry.album_title %></a>
+                    <a href="/records/<%= entry._id %>"><%= entry.album_title %> - <%= entry.artist %></a>
                 </li>
             <% }) %>
         </ul>
