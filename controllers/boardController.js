@@ -1,6 +1,7 @@
 const express = require('express');
 const Board = require('../models/board');
 const User = require('../models/user');
+const JournalEntry = require('../models/journalEntry');
 const router = express.Router();
 
 //add a board
@@ -57,20 +58,18 @@ router.post('/:id/edit', async (req, res) => {
 //delete boards
 router.delete('/:id', async (req, res) => {
   try {
-    const board = await Board.findById(req.params.id);
-    if (board) {
-      await board.remove();
-
-      const user = await User.findById(req.session.userId);
-      user.boards.pull(board._id);
-      await user.save();
-      //removes board reference from user's boards array 
-  }
-  res.redirect('/users/profile');
+      const board = await Board.findById(req.params.id);
+      if (board) {
+          await Board.deleteOne({ _id: req.params.id }); 
+          const user = await User.findById(req.session.userId);
+          user.boards.pull(board._id);
+          await user.save();
+      }
+      res.redirect('/users/profile');
   } catch (error) {
-    console.error(error);
-    res.redirect('/users/profile');
-}
+      console.error(error);
+      res.redirect('/users/profile');
+  }
 });
 
 
