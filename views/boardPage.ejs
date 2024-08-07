@@ -9,15 +9,21 @@
     <h1><%= board.board_name %></h1>
     <p>Description: <%= board.description %></p>
     <div>
-      <h2>Records</h2>
-      <!-- List of added entries -->
+        <h2>Records</h2>
+        <ul>
+            <% board.entries.forEach(entry => { %>
+                <li>
+                    <a href="/records/<%= entry._id %>"><%= entry.album_title %></a>
+                </li>
+            <% }) %>
+        </ul>
     </div>
-  <div>
-      <button onclick="window.location.href='/boards/<%= board._id %>/edit'">Edit</button>
-      <form action="/boards/<%= board._id %>?_method=DELETE" method="POST" style="display:inline;">
-        <button type="submit">Delete</button>
-      </form>
-      <button onclick="window.location.href='/boards/<%= board._id %>/records/add'">Add Records</button>
-  </div>
+    <div>
+        <button onclick="window.location.href='/boards/<%= board._id %>/edit'">Edit</button>
+        <form action="/boards/<%= board._id %>?_method=DELETE" method="POST" style="display:inline;">
+            <button type="submit">Delete</button>
+        </form>
+        <button onclick="window.location.href='/boards/<%= board._id %>/records/add'">Add Records</button>
+        <button onclick="window.location.href='/users/profile'">Back to Profile</button>
 </body>
 </html>

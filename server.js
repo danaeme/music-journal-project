@@ -34,7 +34,7 @@ app.set('view engine', 'ejs');
 
 app.use('/users', userController);
 app.use('/boards', boardController);
-app.use('/entries', journalEntryController);
+app.use('/records', journalEntryController);
  
 app.get('/', (req, res) => {
     res.redirect('/users/profile');

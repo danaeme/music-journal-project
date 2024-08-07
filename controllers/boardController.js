@@ -32,8 +32,16 @@ router.post('/add', async (req, res) => {
 
 //view board
 router.get('/:id', async (req, res) => {
-  const board = await Board.findById(req.params.id);
-  res.render('boardPage', { board });
+  try {
+    const board = await Board.findById(req.params.id).populate('entries');
+    if (!board) {
+        return res.redirect('/users/profile');
+    }
+    res.render('boardPage', { board });
+} catch (error) {
+    console.error(error);
+    res.redirect('/users/profile');
+}
 });
 
 //edit boards
@@ -48,8 +56,8 @@ router.post('/:id/edit', async (req, res) => {
       board.board_name = req.body.board_name;
       board.description = req.body.description;
       await board.save();
-      res.redirect('/users/profile');
-  } catch (error) {
+      res.redirect(`/boards/${req.params.id}`);
+    } catch (error) {
       console.error(error);
       res.redirect(`/boards/${req.params.id}/edit`);
   }
@@ -72,5 +80,32 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
+// Add record to board 
+router.get('/:id/records/add', async (req, res) => {
+  res.render('addRecord', { boardId: req.params.id });
+});
+
+router.post('/:id/records/add', async (req, res) => {
+  try{
+    const record = new JournalEntry ({
+      album_title: req.body.album_title,
+      artist: req.body.artist,
+      rating: req.body.rating,
+      personal_notes: req.body.personal_notes,
+      user_id: req.session.userId,
+    });
+    await record.save();
+    const board = await Board.findById(req.params.id);
+
+    board.entries.push(record._id);
+
+    await board.save();
+
+    res.redirect(`/boards/${req.params.id}`);
+  } catch (error) {
+    console.error(error);
+    res.redirect(`/boards/${req.params.id}/records/add`);
+  }
+});
 
 module.exports = router;
