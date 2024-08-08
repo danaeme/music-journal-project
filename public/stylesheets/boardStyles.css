@@ -1,0 +1,89 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #E3E0F3;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; 
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    max-width: 1200px;
+    background-color: #F3F3FB;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center; 
+}
+
+.board-details {
+    margin-bottom: 40px;
+}
+
+.board-details h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.board-details p {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.records-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.records-section h2 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+}
+
+.record-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #D1CFE2;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.record-item a {
+    flex: 1;
+    font-size: 1.2em;
+    color: #333;
+    text-decoration: none;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+    width: 100%; 
+}
+
+.buttons .btn {
+    background-color: #6C63FF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    text-decoration: none;
+    cursor: pointer;
+    margin: 0 10px;
+    width: 120px; 
+    text-align: center;
+}
+
+.buttons .btn:hover {
+    background-color: #4E4AB0;
+}

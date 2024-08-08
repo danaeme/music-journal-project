@@ -3,27 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/boardStyles.css" />
     <title>Board</title>
 </head>
 <body>
-    <h1><%= board.board_name %></h1>
-    <p>Description: <%= board.description %></p>
-    <div>
+    <div class="container">
+        <div class="board-details">
+            <h1><%= board.board_name %></h1>
+            <p>Description: <%= board.description %></p>
+        </div>
+        <div class="records-section">
         <h2>Records</h2>
-        <ul>
-            <% board.entries.forEach(entry => { %>
-                <li>
-                    <a href="/records/<%= entry._id %>"><%= entry.album_title %> - <%= entry.artist %></a>
-                </li>
-            <% }) %>
-        </ul>
-    </div>
-    <div>
-        <button onclick="window.location.href='/boards/<%= board._id %>/edit'">Edit</button>
-        <form action="/boards/<%= board._id %>?_method=DELETE" method="POST" style="display:inline;">
-            <button type="submit">Delete</button>
+        <% board.entries.forEach(entry => { %>
+            <div class="record-item">
+                <a href="/records/<%= entry._id %>"><%= entry.album_title %> - <%= entry.artist %></a>
+            </div>
+        <% }) %>
+        </div>
+        <div class="buttons">
+        <a href="/boards/<%= board._id %>/edit" class="btn">Edit</a>
+        <form action="/boards/<%= board._id %>?_method=DELETE" method="POST">
+            <button type="submit" class="btn">Delete</button>
         </form>
-        <button onclick="window.location.href='/boards/<%= board._id %>/records/add'">Add Records</button>
-        <button onclick="window.location.href='/users/profile'">Back to Profile</button>
+        <a href="/records/add?boardId=<%= board._id %>" class="btn">Add Records</a>
+        <a href="/users/profile" class="btn">Back to Profile</a>
+        </div>
+    </div>
 </body>
 </html>

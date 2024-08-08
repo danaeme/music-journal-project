@@ -8,6 +8,7 @@ body {
     height: 100vh;
     margin: 0;
     padding: 0;
+    flex-direction: column;
 }
 
 .container {
@@ -16,4 +17,66 @@ body {
     border-radius: 12px;
     width: 60%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.record-details {
+    background-color: #5a5a5a;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    width: 80%;
+    max-width: 800px;
+    margin-bottom: 20px;
+}
+
+.record-details h1, .record-details h3 {
+  margin: 10px 0;
+}
+
+.record-details iframe {
+    border: none;
+    border-radius: 12px;
+    width: 100%;
+    height: 352px;
+}
+
+.record-details p {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #757575;
+}
+
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #757575;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.buttons .btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    margin: 0 5px;
+    text-align: center;
+}
+
+.buttons .btn:hover {
+    background-color: #0056b3;
 }
