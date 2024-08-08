@@ -8,6 +8,7 @@
 <body>
     <h1>Add Record</h1>
     <form action="/boards/<%= boardId %>/records/add" method="POST">
+        <input type="hidden" name="boardId" value="<%= boardId %>">
         <label for="album_title">Album Title:</label>
         <input type="text" name="album_title" required>
         <label for="artist">Artist:</label>

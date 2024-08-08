@@ -1,0 +1,78 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #D8E3E7;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100%;
+    text-align: center;
+}
+
+.header {
+    background-color: #A9B7C0;
+    padding: 50px;
+    border-radius: 100px;
+    margin-bottom: 40px;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.header h1 {
+    font-size: 2em;
+    margin: 0;
+    color: #333;
+}
+
+.boards-title {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.boards-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.board-item {
+    background-color: #8FAADC;
+    padding: 15px 30px;
+    margin-bottom: 20px;
+    width: 70%;
+    border-radius: 25px;
+    text-align: center;
+    color: #ffffff;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.board-item:hover {
+    background-color: #7289DA;
+}
+
+.add-board {
+    background-color: #7289DA;
+    padding: 15px 30px;
+    width: 30%;
+    border-radius: 25px;
+    text-align: center;
+    color: #ffffff;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-board:hover {
+    background-color: #5567B4;
+}

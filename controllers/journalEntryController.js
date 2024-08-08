@@ -2,32 +2,32 @@ const express = require('express');
 const JournalEntry = require('../models/journalEntry');
 const router = express.Router();
 
-// router.get('/add', (req, res) => {
-//   res.render('addRecord', { boardId: req.params.id });
-// });
+router.get('/add', (req, res) => {
+  res.render('addRecord', { boardId: req.query.boardId });
+});
 
-// router.post('/add', async (req, res) => {
-//   try {
-//       const record = new JournalEntry({
-//           album_title: req.body.album_title,
-//           artist: req.body.artist,
-//           rating: req.body.rating,
-//           personal_notes: req.body.personal_notes,
-//           spotify_embed_link: req.body.spotify_embed_link, // Add this line
-//           user_id: req.session.userId,
-//       });
-//       await record.save();
+router.post('/add', async (req, res) => {
+  try {
+      const record = new JournalEntry({
+          album_title: req.body.album_title,
+          artist: req.body.artist,
+          rating: req.body.rating,
+          personal_notes: req.body.personal_notes,
+          spotify_embed_link: req.body.spotify_embed_link, 
+          user_id: req.session.userId,
+      });
+      await record.save();
       
-//       const board = await Board.findById(req.params.id);
-//       board.entries.push(record._id);
-//       await board.save();
+      const board = await Board.findById(req.body.boardId);
+      board.entries.push(record._id);
+      await board.save();
       
-//       res.redirect(`/boards/${req.params.id}`);
-//   } catch (error) {
-//       console.error(error);
-//       res.redirect(`/boards/${req.params.id}/records/add`);
-//   }
-// });
+      res.redirect(`/boards/${req.body.boardId}`);
+  } catch (error) {
+      console.error(error);
+      res.redirect(`/boards/${req.body.boardId}/records/add`);
+  }
+});
 
 
   // View entry
