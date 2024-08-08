@@ -103,6 +103,7 @@ router.post('/:id/records/add', async (req, res) => {
       artist: req.body.artist,
       rating: req.body.rating,
       personal_notes: req.body.personal_notes,
+      spotify_embed_link: req.body.spotify_embed_link, 
       user_id: req.session.userId,
     });
     await record.save();

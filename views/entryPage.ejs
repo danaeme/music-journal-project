@@ -9,9 +9,17 @@
     <div class="record-details">
         <h1><%= journalEntry.album_title %></h1>
         <h3><%= journalEntry.artist %></h3>
-        <img src="<%= journalEntry.album_cover_image %>" alt="Album Cover">
+        <div>
+            <%- journalEntry.spotify_embed_link %>
+        </div>
         <p>Rating: <%= journalEntry.rating %>/5</p>
         <p><%= journalEntry.personal_notes %></p>
+    </div>
+    <div class="buttons">
+        <a href="/records/<%= journalEntry._id %>/edit" class="btn">Edit</a>
+        <form action="/records/<%= journalEntry._id %>?_method=DELETE" method="POST">
+            <button type="submit" class="btn">Delete</button>
+        </form>
     </div>
 </body>
 </html>
