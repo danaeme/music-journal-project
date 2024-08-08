@@ -7,16 +7,18 @@
 </head>
 <body>
     <h1>Edit Journal Entry</h1>
-    <form action="/records/<%= journalEntry._id %>/edit" method="POST">
+    <form action="/records/<%= journalEntry._id %>?_method=PUT" method="POST">
       <label for="album_title">Album Title:</label>
       <input type="text" name="album_title" value="<%= journalEntry.album_title %>" required>
       <label for="artist">Artist:</label>
       <input type="text" name="artist" value="<%= journalEntry.artist %>" required>
+      <label for="spotify_embed_link">Spotify Embed Link:</label>
+      <input type="text" name="spotify_embed_link" value="<%= journalEntry.spotify_embed_link %>" required>
       <label for="personal_notes">Personal Notes:</label>
       <textarea name="personal_notes"><%= journalEntry.personal_notes %></textarea>
       <label for="rating">Rating (1-5):</label>
       <input type="number" name="rating" min="1" max="5" value="<%= journalEntry.rating %>">
       <button type="submit">Save Changes</button>
-    </form>   
+    </form>
 </body>
 </html>

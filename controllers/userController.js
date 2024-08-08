@@ -10,18 +10,18 @@ router.get('/register', (req, res) => {
   });
 
 router.post('/register', async (req, res) => {
-    try {
-        const hashedPassword = await bcrypt.hash(req.body.password, 10);
-        const user = new User({
-          username: req.body.username,
-          email: req.body.email,
-          password: hashedPassword
-        });
-        await user.save();
-        res.redirect('/users/login');
-      } catch (error) {
-        res.redirect('/users/register');
-      }
+  try {
+    const hashedPassword = await bcrypt.hash(req.body.password, 10);
+      const user = new User({
+        username: req.body.username,
+        email: req.body.email,
+        password: hashedPassword
+      });
+      await user.save();
+      res.redirect('/users/login');
+  } catch (error) {
+      res.redirect('/users/register');
+    }
 });
 
 router.get('/login', (req, res) => {

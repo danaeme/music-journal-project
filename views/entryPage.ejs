@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css" />
     <title>Journal Entry</title>
 </head>
 <body>
@@ -20,6 +21,7 @@
         <form action="/records/<%= journalEntry._id %>?_method=DELETE" method="POST">
             <button type="submit" class="btn">Delete</button>
         </form>
+        <a href="/boards/<%= journalEntry.board_id %>" class="btn">Back to Board</a>
     </div>
 </body>
 </html>

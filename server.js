@@ -13,6 +13,8 @@ const app = express();
 
 const port = process.env.PORT ? process.env.PORT : '3000';
 
+const path = require('path');
+
 mongoose.connect(process.env.MONGODB_URI);
 
 mongoose.connection.on('connected', () => {
@@ -22,6 +24,8 @@ mongoose.connection.on('connected', () => {
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
+app.use(express.static(path.join(__dirname, 'public')));app.set('view engine', 'ejs');
+
 app.use(
     session({
       secret: process.env.SESSION_SECRET,
@@ -29,9 +33,6 @@ app.use(
       saveUninitialized: true,
     })
   );
-app.use(express.static('public'));
-app.set('view engine', 'ejs');
-
 app.use('/users', userController);
 app.use('/boards', boardController);
 app.use('/records', journalEntryController);
