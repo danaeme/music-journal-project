@@ -16,9 +16,20 @@
 
     The music journal is a webpage where users can store Spotify albums, songs, or playlists in themed-collections of boards to access at any time. 
 
+    Each profile contains themed "boards" that users can populate with embedded Spotify players to highlight heir favorite tracks and playlists.
+
   </div>
 
+  ## :camera_flash: Screenshots 
 
+  |   Description | Screenshot | 
+  |:-------------:| -----------|
+  | <h3>Feed Page</h3> | <img
+<img src="/images/readmeIMG1.png" width="700">
+  /> |
+  | <h3 align="center">Profile Page</h3> | <img
+<img src="/images/readmeIMG2.png" width="700">
+  /> |
 
   
   # Technologies Used
@@ -52,6 +63,6 @@
 ## :satellite: Stretch Goals
 
 
-- [:x:] Community features. 
+- [:x:] Community features: Search for other user profiles, view their boards and entries, save boards or entries to their own profile. 
 
-- [:x:] Spotify API integration.
+- [:x:] Spotify API integration to allow users to search for and populate boards dynamically from within the webpage, rather than grabbing embedded links from their Spotify app. 
