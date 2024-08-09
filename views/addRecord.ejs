@@ -3,23 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/formStyles.css">
     <title>Document</title>
 </head>
 <body>
+<div class="container">
     <h1>Add Record</h1>
     <form action="/boards/<%= boardId %>/records/add" method="POST">
         <input type="hidden" name="boardId" value="<%= boardId %>">
-        <label for="album_title">Album Title:</label>
-        <input type="text" name="album_title" required>
-        <label for="artist">Artist:</label>
-        <input type="text" name="artist" required>
-        <label for="spotify_embed_link">Spotify Embed Link:</label>
-        <textarea name="spotify_embed_link" required></textarea>
-        <label for="rating">Rating (1-5):</label>
-        <input type="number" name="rating" min="1" max="5">
-        <label for="personal_notes">Personal Notes:</label>
-        <textarea name="personal_notes"></textarea>
-        <button type="submit">Add Record</button>
+        <div class="form-group">
+            <label for="album_title">Album Title:</label>
+            <input type="text" name="album_title" required>
+        </div>
+        <div class="form-group">
+            <label for="artist">Artist:</label>
+            <input type="text" name="artist" required>
+        </div>
+        <div class="form-group">
+            <label for="spotify_embed_link">Spotify Embed Link:</label>
+            <textarea name="spotify_embed_link" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="rating">Rating (1-5):</label>
+            <input type="number" name="rating" min="1" max="5">
+        </div>
+        <div class="form-group">
+            <label for="personal_notes">Personal Notes:</label>
+            <textarea name="personal_notes"></textarea>
+        </div>
+        <div class="button-container">
+            <button type="submit">Add Record</button>
+        </div>
     </form>
+</div>
 </body>
 </html>
