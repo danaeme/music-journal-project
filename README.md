@@ -1,6 +1,6 @@
 <div id="header" align="center">
 
-  <img src="/images/coverReadMe.png" width="800" height="400">
+  <img src="/images/coverReadMe.png" width="600" height="400">
 
 </div>
 
@@ -60,6 +60,6 @@
 ## :satellite: Stretch Goals
 
 
-- [:x:] Community features: Search for other user profiles, view their boards and entries, save boards or entries to their own profile. 
+- [:x:] Community features: Search for other user profiles, view their boards and entries, save boards or entries to their own profile. Implement comments on user boards and pages.
 
 - [:x:] Spotify API integration to allow users to search for and populate boards dynamically from within the webpage, rather than grabbing embedded links from their Spotify app. 

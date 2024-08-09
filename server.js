@@ -7,7 +7,7 @@ const methodOverride = require('method-override');
 const userController = require('./controllers/userController');
 const boardController = require('./controllers/boardController');
 const journalEntryController = require('./controllers/journalEntryController');
-
+const isSignedIn  = require('../middleware/isSignedIn');
 
 const app = express();
 
@@ -36,8 +36,8 @@ app.use(
     })
   );
 app.use('/users', userController);
-app.use('/boards', boardController);
-app.use('/records', journalEntryController);
+app.use('/boards', isSignedIn, boardController);
+app.use('/records', isSignedIn, journalEntryController);
  
 app.get('/', (req, res) => {
     res.redirect('/users/profile');
