@@ -13,10 +13,10 @@ body {
 }
 
 .container {
-    width: 80%;
+    width: 67%;
     max-width: 1200px;
     background-color: rgba(243, 243, 251, 0.9);
-    padding: 40px;
+    padding: 25px;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center; 
@@ -82,7 +82,7 @@ body {
     text-decoration: none;
     cursor: pointer;
     margin: 0 10px;
-    width: 120px; 
+    width: 175px;; 
     text-align: center;
 }
 
