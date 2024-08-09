@@ -8,7 +8,7 @@
 
   # Music Journal - Digital Record Shop
 
-  ### [CLICK TO DEMO](https://meetyourclassmates.herokuapp.com/)
+  ### [CLICK TO DEMO](https://music-journaldca-d32ba994fa0a.herokuapp.com/users/login)
 
   ##### David Anaeme
 
