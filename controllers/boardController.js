@@ -2,7 +2,10 @@ const express = require('express');
 const Board = require('../models/board');
 const User = require('../models/user');
 const JournalEntry = require('../models/journalEntry');
+const isSignedIn  = require('../middleware/isSignedIn');
 const router = express.Router();
+
+router.use(isSignedIn);
 
 //add a board
 router.get('/add', (req, res) => {

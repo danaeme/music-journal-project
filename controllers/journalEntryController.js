@@ -2,6 +2,9 @@ const express = require('express');
 const JournalEntry = require('../models/journalEntry');
 const router = express.Router();
 const Board = require('../models/board');
+const isSignedIn = require('../middleware/isSignedIn');
+
+router.use(isSignedIn);
 
 router.get('/add', (req, res) => {
   res.render('addRecord', { boardId: req.query.boardId });
