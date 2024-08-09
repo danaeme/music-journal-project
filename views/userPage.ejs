@@ -16,9 +16,16 @@
     </div>
     <div class="boards-list">
         <ul>
-            <% user.boards.forEach(board => { %>
-                <li class="board-item"><a href="/boards/<%= board._id %>"><%= board.board_name %></a></li>
-            <% }) %>
+            <% user.boards.forEach(function(board) { %> 
+                <li class="board-item">
+                    <% if (board.image_url) { %>
+                        <img src="<%= board.image_url %>" alt="Board Image" class="board-image">
+                    <% } else { %>
+                        <div class="board-image-placeholder">IMG</div>
+                    <% } %>
+                    <a href="/boards/<%= board._id %>"><%= board.board_name %></a>
+                </li>
+            <% }); %> <!-- end of loop -->
         </ul>
     </div>
     <div class="buttons">

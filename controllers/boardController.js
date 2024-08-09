@@ -14,7 +14,8 @@ router.post('/add', async (req, res) => {
     const board = new Board({
         user_id: req.session.userId,
         board_name: req.body.board_name,
-        description: req.body.description
+        description: req.body.description,
+        image_url: req.body.image_url
     });
     await board.save();
     
@@ -96,6 +97,7 @@ router.post('/:id/edit', async (req, res) => {
     }
     board.board_name = req.body.board_name;
     board.description = req.body.description;
+    board.image_url = req.body.image_url;
     await board.save();
     res.redirect(`/boards/${req.params.id}`);
 } catch (error) {

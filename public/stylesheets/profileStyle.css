@@ -8,71 +8,72 @@ body {
     height: 100vh;
     margin: 0;
     padding: 0;
+    background-image: url('/images/coverRecordShop.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .container {
-    width: 100%;
-    text-align: center;
-}
-
-.header {
-    background-color: #A9B7C0;
-    padding: 50px;
-    border-radius: 0px;
-    margin-bottom: 40px;
-    width: 50%;
-    margin: 0 auto;
-}
-
-.header h1 {
-    font-size: 2em;
-    margin: 0;
-    color: #333;
-}
-
-.boards-title {
-    font-size: 1.5em;
-    margin-bottom: 20px;
-    color: #333;
-}
-
-.boards-list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 50%;
-    margin: 0 auto;
+    position: relative; 
+    z-index: 1; 
+    width: 80%;
+    max-width: 1200px;
+    background-color: rgba(243, 243, 251, 0.9); 
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center; 
+    backdrop-filter: blur(5px); 
 }
 
 .board-item {
-    background-color: #8FAADC;
-    padding: 15px 30px;
+    display: flex;
+    align-items: center;
     margin-bottom: 20px;
-    width: 70%;
+    padding: 10px 20px;
+    background-color: #A9B7C0;
     border-radius: 25px;
-    text-align: center;
-    color: #ffffff;
+    justify-content: flex-start;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto 20px auto; /* center the items */
+}
+
+.board-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+}
+
+.board-image-placeholder {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+}
+
+.board-item a {
+    flex: 1;
+    color: #333;
+    text-decoration: none;
     font-size: 1.2em;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    text-align: left; 
 }
 
-.board-item:hover {
-    background-color: #7289DA;
+.board-item a:hover {
+    text-decoration: underline;
 }
 
-.add-board {
-    background-color: #7289DA;
-    padding: 15px 30px;
-    width: 30%;
-    border-radius: 25px;
-    text-align: center;
-    color: #ffffff;
-    font-size: 1.2em;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.add-board:hover {
-    background-color: #5567B4;
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
 }
