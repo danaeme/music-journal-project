@@ -38,7 +38,7 @@ body {
     justify-content: flex-start;
     width: 100%;
     max-width: 500px;
-    margin: 0 auto 20px auto; /* center the items */
+    margin: 0 auto 20px auto; 
 }
 
 .board-image {

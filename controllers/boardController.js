@@ -7,7 +7,6 @@ const router = express.Router();
 
 router.use(isSignedIn);
 
-//add a board
 router.get('/add', (req, res) => {
     res.render('addBoard');
   });
@@ -34,7 +33,6 @@ router.post('/add', async (req, res) => {
 }
 });
 
-// Add record to board 
 router.get('/:id/records/add', async (req, res) => {
   res.render('addRecord', { boardId: req.params.id });
 });
@@ -64,7 +62,6 @@ router.post('/:id/records/add', async (req, res) => {
   }
 });
 
-//view board
 router.get('/:id', async (req, res) => {
   try {
     const board = await Board.findById(req.params.id).populate('entries');
@@ -78,7 +75,6 @@ router.get('/:id', async (req, res) => {
 }
 });
 
-//edit boards
 router.get('/:id/edit', async (req, res) => {
   try {
     const board = await Board.findById(req.params.id);
@@ -109,7 +105,6 @@ router.post('/:id/edit', async (req, res) => {
 }
 });
 
-//delete boards
 router.delete('/:id', async (req, res) => {
   try {
       const board = await Board.findById(req.params.id);

@@ -22,12 +22,9 @@
 
   ## :camera_flash: Screenshots 
 
-  |   Description | Screenshot | 
-  |:-------------:| -----------|
-  | <h3>Feed Page</h3> | <img
+ <h3>Board Page</h3> | <img
 <img src="/images/readmeIMG1.png" width="700">
-  /> |
-  | <h3 align="center">Profile Page</h3> | <img
+ <h3 align="center">Record Page</h3> | <img
 <img src="/images/readmeIMG2.png" width="700">
   /> |
 
@@ -55,9 +52,9 @@
 
 <details open>
   <summary> Deployed Link (Heroku) </summary>
-  <!-- <a href="https://meetyourclassmates.herokuapp.com/"
-    > https://meetyourclassmates.herokuapp.com/ </a
-  > -->
+  <a href="https://music-journaldca-d32ba994fa0a.herokuapp.com/users/login"
+    > https://music-journaldca-d32ba994fa0a.herokuapp.com/users/login </a
+  >
 </details>
 
 ## :satellite: Stretch Goals

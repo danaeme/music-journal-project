@@ -35,7 +35,6 @@ router.post('/add', async (req, res) => {
 });
 
 
-  // View entry
 router.get('/:id', async (req, res) => {
   try {
     const journalEntry = await JournalEntry.findById(req.params.id);
@@ -51,7 +50,6 @@ router.get('/:id', async (req, res) => {
 }
 });
 
-// Edit entry
 router.get('/:id/edit', async (req, res) => {
   try {
     const journalEntry = await JournalEntry.findById(req.params.id);
@@ -77,7 +75,6 @@ router.put('/:id', async (req, res) => {
     journalEntry.personal_notes = req.body.personal_notes;
     journalEntry.spotify_embed_link = req.body.spotify_embed_link;
     await journalEntry.save();
-    // console.log('Updated successfully.');
 
     res.redirect(`/records/${req.params.id}`);
   } catch (error) {
