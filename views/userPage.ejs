@@ -9,7 +9,7 @@
 <body>
     <div class="container">
     <div class="header">
-        <h1>Welcome to <%= user.username %>'s Record Shop!!</h1>
+        <h1>Welcome to <%= user.username %>'s Record Shop!</h1>
     </div>
     <div class="boards-title">
         <h2>Boards</h2>
@@ -22,8 +22,11 @@
         </ul>
     </div>
     <div class="buttons">
-    <a href="/boards/add" class="btn">Add New Board</a>
-    <a href="/entries/add" class="btn">Add New Entry</a>
+        <a href="/boards/add" class="btn">Add New Board</a>
+        <a href="/entries/add" class="btn">Add New Entry</a>
+    </div>
+    <div>
+        <button onclick="window.location.href='/users/logout'">Logout</button>
     </div>
     </div>
 </body>
