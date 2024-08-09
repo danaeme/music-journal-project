@@ -7,7 +7,8 @@ const journalEntrySchema = new mongoose.Schema({
     personal_notes: String,
     spotify_embed_link: { type: String, required: true }, 
     user_id: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-})
+    board_id: { type: mongoose.Schema.Types.ObjectId, ref: 'Board', required: true},
+});
 
 const JournalEntry = mongoose.model('JournalEntry', journalEntrySchema);
 module.exports = JournalEntry;

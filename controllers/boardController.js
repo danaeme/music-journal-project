@@ -30,6 +30,36 @@ router.post('/add', async (req, res) => {
 }
 });
 
+// Add record to board 
+router.get('/:id/records/add', async (req, res) => {
+  res.render('addRecord', { boardId: req.params.id });
+});
+
+router.post('/:id/records/add', async (req, res) => {
+  try{
+    const record = new JournalEntry ({
+      album_title: req.body.album_title,
+      artist: req.body.artist,
+      rating: req.body.rating,
+      personal_notes: req.body.personal_notes,
+      spotify_embed_link: req.body.spotify_embed_link, 
+      user_id: req.session.userId,
+      board_id: req.params.id,
+    });
+    await record.save();
+    const board = await Board.findById(req.params.id);
+
+    board.entries.push(record._id);
+
+    await board.save();
+
+    res.redirect(`/boards/${req.params.id}`);
+  } catch (error) {
+    console.error(error);
+    res.redirect(`/boards/${req.params.id}/records/add`);
+  }
+});
+
 //view board
 router.get('/:id', async (req, res) => {
   try {
@@ -85,39 +115,12 @@ router.delete('/:id', async (req, res) => {
           await user.save();
       }
       res.redirect('/users/profile');
-  } catch (error) {
+  }   catch (error) {
       console.error(error);
       res.redirect('/users/profile');
   }
 });
 
-// Add record to board 
-router.get('/:id/records/add', async (req, res) => {
-  res.render('addRecord', { boardId: req.params.id });
-});
 
-router.post('/:id/records/add', async (req, res) => {
-  try{
-    const record = new JournalEntry ({
-      album_title: req.body.album_title,
-      artist: req.body.artist,
-      rating: req.body.rating,
-      personal_notes: req.body.personal_notes,
-      spotify_embed_link: req.body.spotify_embed_link, 
-      user_id: req.session.userId,
-    });
-    await record.save();
-    const board = await Board.findById(req.params.id);
-
-    board.entries.push(record._id);
-
-    await board.save();
-
-    res.redirect(`/boards/${req.params.id}`);
-  } catch (error) {
-    console.error(error);
-    res.redirect(`/boards/${req.params.id}/records/add`);
-  }
-});
 
 module.exports = router;

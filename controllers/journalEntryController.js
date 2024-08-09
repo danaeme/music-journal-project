@@ -1,6 +1,7 @@
 const express = require('express');
 const JournalEntry = require('../models/journalEntry');
 const router = express.Router();
+const Board = require('../models/board');
 
 router.get('/add', (req, res) => {
   res.render('addRecord', { boardId: req.query.boardId });
@@ -15,6 +16,7 @@ router.post('/add', async (req, res) => {
           personal_notes: req.body.personal_notes,
           spotify_embed_link: req.body.spotify_embed_link, 
           user_id: req.session.userId,
+          board_id: req.body.boardId,
       });
       await record.save();
       
@@ -37,11 +39,13 @@ router.get('/:id', async (req, res) => {
     if (!journalEntry) {
       return res.redirect('/users/profile');
     }
-    res.render('entryPage', { journalEntry });
-  } catch (error) {
-    console.error(error);
-    res.redirect('/users/profile');
-  }
+    const boardId = journalEntry.board_id;
+
+    res.render('entryPage', { journalEntry, boardId });
+} catch (error) {
+  console.error(error);
+  res.redirect('/users/profile');
+}
 });
 
 // Edit entry

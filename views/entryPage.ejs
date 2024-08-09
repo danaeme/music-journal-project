@@ -21,7 +21,9 @@
         <form action="/records/<%= journalEntry._id %>?_method=DELETE" method="POST">
             <button type="submit" class="btn">Delete</button>
         </form>
-        <a href="/boards/<%= journalEntry.board_id %>" class="btn">Back to Board</a>
+    </div>
+    <div class="buttons">
+        <a href="/boards/<%= boardId %>" class="btn">Back to Board</a>
     </div>
 </body>
 </html>
