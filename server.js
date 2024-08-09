@@ -7,7 +7,7 @@ const methodOverride = require('method-override');
 const userController = require('./controllers/userController');
 const boardController = require('./controllers/boardController');
 const journalEntryController = require('./controllers/journalEntryController');
-const isSignedIn  = require('../middleware/isSignedIn');
+const isSignedIn  = require('./middleware/isSignedIn');
 
 const app = express();
 
